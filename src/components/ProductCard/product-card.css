@@ -1,0 +1,12 @@
+.saiyan-vertical-card .card__body {
+  padding: 0.2rem 1rem;
+}
+
+.card__btn {
+  text-align: center;
+  cursor: pointer;
+}
+
+.card__btn__links {
+  text-decoration: none;
+}
