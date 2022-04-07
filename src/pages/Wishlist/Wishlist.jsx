@@ -27,8 +27,8 @@ const Wishlist = () => {
           </div>
 
           <div className="wishlist__card__container">
-            {wishlistState.wishlist.map((x) => (
-              <ProductCard products={x} />
+            {wishlistState.wishlist.map((item) => (
+              <ProductCard key={item.id} products={item} />
             ))}
           </div>
         </>
