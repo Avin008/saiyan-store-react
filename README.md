@@ -1,3 +1,11 @@
-## E-Commerce Backend
+## Saiyan Merch
 
-This folder contains the Mock Backend created for E-Commerce App. It contains different API end-points and database configuration for building E-Commerce; so that you can focus on building Frontend.
+Saiyan Merch is an Online E-commerce Web App where you can buy Anime Merch
+
+### Features
+
+- Add to cart
+- Add to wishlist
+- Cart management
+- Product listing page with all filters and sorting
+- All with basic routing
