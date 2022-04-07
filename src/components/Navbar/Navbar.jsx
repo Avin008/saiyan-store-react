@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className="saiyan-navbar navbar-fixed">
       <div className="navbar__brand-container">
         <Link to="/" className="navbar__brand__name navbar__links">
-          Saiyan Merch
+          Saiyan Store
         </Link>
       </div>
 

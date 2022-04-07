@@ -37,8 +37,6 @@ const CartCard = ({ products }) => {
             <input
               className="card__quantity__box"
               type="text"
-              name=""
-              id=""
               value={products.cartQuantity}
             />
             <button

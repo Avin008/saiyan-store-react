@@ -47,8 +47,6 @@ const SidebarFilter = () => {
             <li>
               <input
                 type="checkbox"
-                name=""
-                id=""
                 checked={productList.category.includes("Dragon Ball Z")}
                 onChange={() =>
                   productListDispatch({
@@ -62,8 +60,6 @@ const SidebarFilter = () => {
             <li>
               <input
                 type="checkbox"
-                name=""
-                id=""
                 checked={productList.category.includes("My Hero Academia")}
                 onChange={() =>
                   productListDispatch({
@@ -77,8 +73,6 @@ const SidebarFilter = () => {
             <li>
               <input
                 type="checkbox"
-                name=""
-                id=""
                 checked={productList.category.includes("Dr. Stone")}
                 onChange={() =>
                   productListDispatch({
@@ -92,8 +86,6 @@ const SidebarFilter = () => {
             <li>
               <input
                 type="checkbox"
-                name=""
-                id=""
                 checked={productList.category.includes("Haikyuu")}
                 onChange={() =>
                   productListDispatch({
@@ -107,8 +99,6 @@ const SidebarFilter = () => {
             <li>
               <input
                 type="checkbox"
-                name=""
-                id=""
                 checked={productList.category.includes("Death Note")}
                 onChange={() =>
                   productListDispatch({
@@ -122,8 +112,6 @@ const SidebarFilter = () => {
             <li>
               <input
                 type="checkbox"
-                name=""
-                id=""
                 checked={productList.category.includes("Attack On Titan")}
                 onChange={() =>
                   productListDispatch({
@@ -145,8 +133,6 @@ const SidebarFilter = () => {
             <li>
               <input
                 type="radio"
-                name=""
-                id=""
                 checked={productList.ratings === 4}
                 onChange={() =>
                   productListDispatch({ type: "RATINGS", payload: 4 })
@@ -157,8 +143,6 @@ const SidebarFilter = () => {
             <li>
               <input
                 type="radio"
-                name=""
-                id=""
                 checked={productList.ratings === 3}
                 onChange={() =>
                   productListDispatch({ type: "RATINGS", payload: 3 })
@@ -169,8 +153,6 @@ const SidebarFilter = () => {
             <li>
               <input
                 type="radio"
-                name=""
-                id=""
                 checked={productList.ratings === 2}
                 onChange={() =>
                   productListDispatch({ type: "RATINGS", payload: 2 })
@@ -181,8 +163,6 @@ const SidebarFilter = () => {
             <li>
               <input
                 type="radio"
-                name=""
-                id=""
                 checked={productList.ratings === 1}
                 onChange={() =>
                   productListDispatch({ type: "RATINGS", payload: 1 })
@@ -202,7 +182,6 @@ const SidebarFilter = () => {
               <input
                 type="radio"
                 name="priceRange"
-                id=""
                 checked={productList.sortBy === "HIGH_TO_LOW"}
                 onChange={() =>
                   productListDispatch({
@@ -217,7 +196,6 @@ const SidebarFilter = () => {
               <input
                 type="radio"
                 name="priceRange"
-                id=""
                 checked={productList.sortBy === "LOW_TO_HIGH"}
                 onChange={() =>
                   productListDispatch({
