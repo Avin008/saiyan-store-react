@@ -1,0 +1,35 @@
+.wishlist-container {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.wishlist__header__container {
+  display: flex;
+  justify-content: center;
+}
+
+.wishlist__card__container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.empty-wishlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.empty-wishlist-title {
+  color: #ff527b;
+}
+
+.empty-wishlist-btn {
+  border: none;
+  padding: 0.6rem 1rem;
+  background-color: #ff527b;
+  color: white;
+  font-weight: 700;
+}
