@@ -13,8 +13,29 @@ const Signup = () => {
         <h1 className="heading">Signup</h1>
 
         <div className="input-group">
-          <label className="label" for="">
-            Email adresses
+          <label className="label" htmlFor="">
+            First Name
+          </label>
+          <input
+            className="input"
+            type="text"
+            name=""
+            id=""
+            placeholder="john"
+          />
+          <label className="label" htmlhtmlFor="">
+            Last Name
+          </label>
+          <input
+            className="input"
+            type="text"
+            name=""
+            id=""
+            placeholder="Doe"
+          />
+
+          <label className="label" htmlFor="">
+            Email address
           </label>
           <input
             className="input"
@@ -23,7 +44,7 @@ const Signup = () => {
             id=""
             placeholder="john@gmail.com"
           />
-          <label className="label" for="">
+          <label className="label" htmlFor="">
             Password
           </label>
           <input
@@ -36,7 +57,7 @@ const Signup = () => {
           <div className="checkbox">
             <span>
               <input type="checkbox" name="" id="" />
-              <label for="">I accepts all Terms & Conditions</label>
+              <label htmlFor="">I accepts all Terms & Conditions</label>
             </span>
           </div>
 

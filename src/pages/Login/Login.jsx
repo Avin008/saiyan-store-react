@@ -20,7 +20,6 @@ const Login = () => {
             className="input"
             type="email"
             name="email"
-            id=""
             placeholder="john@gmail.com"
           />
           <label className="label" for="password">
@@ -30,13 +29,12 @@ const Login = () => {
             className="input"
             type="password"
             name="password"
-            id=""
             placeholder="********"
           />
           <div className="checkbox">
             <span>
-              <input type="checkbox" name="checkbox" id="" />
-              <label for="checkbox">Remember me</label>
+              <input type="checkbox" name="checkbox" />
+              <label htmlFor="checkbox">Remember me</label>
             </span>
 
             <span>
