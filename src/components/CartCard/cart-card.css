@@ -1,0 +1,18 @@
+.span-qty {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.saiyan-horizontal-card {
+  margin: 0.8rem;
+}
+
+.spacing {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.card__CTA__btn {
+  cursor: pointer;
+}

@@ -1,0 +1,37 @@
+.checkout-card {
+  width: 18.75rem;
+  padding: 1rem;
+  box-shadow: var(--checkout-card-shadow);
+  border-radius: 0.6rem;
+  background-color: var(--color-white);
+}
+
+.checkout-card .amount__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-card .amount__container > * {
+  margin: 0.8rem 0;
+}
+
+.checkout-card .span__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+
+.checkout-card .CTA__btn {
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: var(--card-primary-color);
+  color: var(--color-white);
+  cursor: pointer;
+}

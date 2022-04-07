@@ -1,0 +1,44 @@
+.filter {
+  width: 15.625rem;
+  background-color: var(--filer-bg);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  position: sticky;
+  top: 5rem;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.filter-range {
+  width: 100%;
+}
+
+.range {
+  display: flex;
+  justify-content: space-between;
+}
+
+.range__controller {
+  width: 100%;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.filter ul {
+  list-style: none;
+  padding: 0;
+}
+
+.filter li {
+  padding: 0.2rem;
+}
+
+.clear-btn {
+  text-decoration: underline;
+  cursor: pointer;
+}

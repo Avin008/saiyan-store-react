@@ -1,0 +1,36 @@
+:root {
+  --body-background-color: #f7f7f7;
+  --explore-card-bg-color: #ffff;
+  --explore-card-btn-bg: #404040;
+  --explore-card-btn-color: #fff;
+  --explore-card-shadow: 0px 8px 24px #959da533;
+  --explore-card-btn-bg-color: #404040;
+  --color-purple: purple;
+  --color-white: white;
+}
+
+.saiyan-explore-card {
+  border-radius: 0.6rem;
+  background-color: var(--explore-card-bg-color);
+  box-shadow: var(--explore-card-shadow);
+}
+
+.saiyan-explore-card .card__img {
+  width: 100%;
+  height: auto;
+}
+
+.saiyan-explore-card .card__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.saiyan-explore-card .card__btn {
+  padding: 0.6rem;
+  text-decoration: none;
+  border-radius: 0.3rem;
+  background-color: var(--explore-card-btn-bg);
+  color: var(--explore-card-btn-color);
+}
