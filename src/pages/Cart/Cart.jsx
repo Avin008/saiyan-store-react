@@ -8,7 +8,7 @@ const Cart = () => {
   const { cartState } = useCartContext();
 
   useEffect(() => {
-    document.title = `(${cartState.cart.length}) Cart | Saiyan Merch`;
+    document.title = `(${cartState.cart.length}) Cart | Saiyan Store`;
   }, [cartState.cart]);
 
   return (

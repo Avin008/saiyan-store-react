@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const Login = () => {
   useEffect(() => {
-    document.title = "Login | Saiyan Merch";
+    document.title = "Login | Saiyan Store";
   }, []);
 
   return (

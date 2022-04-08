@@ -7,7 +7,7 @@ const Home = () => {
   const { category } = useCategoryContext();
 
   useEffect(() => {
-    document.title = "Home | Saiyan Merch";
+    document.title = "Home | Saiyan Store";
   }, []);
 
   return (

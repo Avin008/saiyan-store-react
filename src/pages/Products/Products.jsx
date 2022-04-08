@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 const Products = () => {
   useEffect(() => {
-    document.title = "Products | Saiyan Merch";
+    document.title = "Products | Saiyan Store";
   }, []);
 
   const { products } = useProducts();

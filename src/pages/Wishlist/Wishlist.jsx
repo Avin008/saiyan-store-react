@@ -8,7 +8,7 @@ const Wishlist = () => {
   const { wishlistState, wishlistDispatch } = useWishlistContext();
 
   useEffect(() => {
-    document.title = `(${wishlistState.wishlist.length}) Wishlist | Saiyan Merch`;
+    document.title = `(${wishlistState.wishlist.length}) Wishlist | Saiyan Store`;
   }, [wishlistState.wishlist]);
 
   return (
