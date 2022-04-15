@@ -9,7 +9,7 @@ const ProductCard = ({ products }) => {
 
   return (
     <div className="saiyan-vertical-card">
-      <img className="card__img" src={products.img} />
+      <img className="card__img" src={products.img} alt="anime tshirt" />
 
       <div className="card__body">
         <h3 className="card__heading">{products.brand}</h3>
@@ -25,7 +25,7 @@ const ProductCard = ({ products }) => {
           {cartState.cart.find((cartItem) => cartItem._id === products._id) ? (
             <Link className="card__btn__links" to="/cart">
               <div className="card__btn card__btn__primary">
-                <i className="fa-solid fa-cart-arrow-down"></i> Goto Cart
+                <i className="fa-solid fa-cart-arrow-down"></i> Go To Cart
               </div>
             </Link>
           ) : (
@@ -70,9 +70,7 @@ const ProductCard = ({ products }) => {
 
             <div className="ratings">
               <span>
-                {products.ratings}{" "}
-                <i className="fa-solid fa-star ratings__icon"></i> |{" "}
-                {products.peopleLiked}k
+                {products.ratings} <i class="fa-solid fa-star"></i>
               </span>
             </div>
           </div>

@@ -14,7 +14,7 @@ const CartCard = ({ products }) => {
       </div>
 
       <div className="saiyan-horizontal-card__body">
-        <h3>{products.name}</h3>
+        <h3>{products.brand}</h3>
         <h1 className="card__price spacing">
           Rs. {products.discountedPrice}
           <span className="card__price__stricked">Rs. {products.price}</span>

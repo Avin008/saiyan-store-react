@@ -20,3 +20,16 @@
   grid-row-gap: 2rem;
   margin: 1rem;
 }
+
+.fa-star {
+  color: #faaf00;
+}
+
+.saiyan-vertical-card .card__actions {
+  margin: 0.6rem 0;
+}
+
+.saiyan-vertical-card .card__btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}

@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Dragon Ball Z Tshirt",
     name: "Dragon Ball Z",
     img: "https://i.ibb.co/r2ZxBCc/APPARELISED-29-1000x.webp",
     discountedPrice: 639,
@@ -21,7 +21,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Dragon Ball Z Tshirt",
     name: "Dragon Ball Z",
     img: "https://i.ibb.co/NtddrCX/APPARELISED-32-1000x.webp",
     discountedPrice: 1599,
@@ -34,7 +34,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Dragon Ball Z Tshirt",
     name: "Dragon Ball Z",
     discountedPrice: 879,
     img: "https://i.ibb.co/B4Wmmpt/APPARELISED-35-1-1000x.webp",
@@ -47,7 +47,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Dragon Ball Z Tshirt",
     name: "Dragon Ball Z",
     img: "https://i.ibb.co/pj4cdzC/Untitleddesign-2021-03-31-T190226-184-1000x.webp",
     discountedPrice: 799,
@@ -60,7 +60,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Dragon Ball Z Tshirt",
     name: "Dragon Ball Z",
     img: "https://i.ibb.co/xgPLv5N/APPARELISED-25-1000x.webp",
     discountedPrice: 719,
@@ -73,7 +73,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Attack On Titan Tshirt",
     name: "Attack On Titan",
     img: "https://i.ibb.co/xDCF64y/ERENJAEGER-2021-05-15-T220643-970-1000x.webp",
     discountedPrice: 639,
@@ -86,7 +86,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Attack On Titan Tshirt",
     name: "Attack On Titan",
     img: "https://i.ibb.co/0tL0YwK/Untitleddesign-2-1000x.webp",
     discountedPrice: 559,
@@ -99,7 +99,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Attack On Titan Tshirt",
     name: "Attack On Titan",
     img: "https://i.ibb.co/n66DmV9/Untitleddesign-2021-04-05-T120913-642-1000x.webp",
     discountedPrice: 639,
@@ -112,7 +112,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Attack On Titan Tshirt",
     name: "Attack On Titan",
     img: "https://i.ibb.co/sVGNLnJ/Untitleddesign-2021-02-17-T104042-044-1000x.webp",
     discountedPrice: 799,
@@ -125,7 +125,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Attack On Titan Tshirt",
     name: "Attack On Titan",
     img: "https://i.ibb.co/MRfw5H6/Untitleddesign-2021-04-04-T223011-161-1000x.webp",
     discountedPrice: 1039,
@@ -138,7 +138,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Haikyuu Tshirt",
     name: "Haikyuu",
     img: "https://i.ibb.co/0yGhVm0/2095197-1.jpg",
     discountedPrice: 1199,
@@ -151,7 +151,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Haikyuu Tshirt",
     name: "Haikyuu",
     img: "https://i.ibb.co/TMx0vhN/16050017-0.jpg",
     discountedPrice: 1119,
@@ -164,7 +164,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Haikyuu Tshirt",
     name: "Haikyuu",
     img: "https://i.ibb.co/rv2Q3GR/16690800-0.jpg",
     discountedPrice: 1039,
@@ -177,7 +177,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Haikyuu Tshirt",
     name: "Haikyuu",
     img: "https://i.ibb.co/0n8y0KW/18260364-0.jpg",
     discountedPrice: 719,
@@ -190,7 +190,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Haikyuu Tshirt",
     name: "Haikyuu",
     img: "https://i.ibb.co/tKw5X1Y/17967406-1.jpg",
     discountedPrice: 1039,
@@ -203,7 +203,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Death Note Tshirt",
     name: "Death Note",
     img: "https://i.ibb.co/g7bJ8cw/567df872df5af244af0389c0aca4a433d3a9688c-original.jpg",
     discountedPrice: 1039,
@@ -216,7 +216,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Death Note Tshirt",
     name: "Death Note",
     img: "https://i.ibb.co/T2nmFzm/Death-Note-1500x.webp",
     discountedPrice: 599,
@@ -229,7 +229,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Death Note Tshirt",
     name: "Death Note",
     img: "https://i.ibb.co/ftTKKGH/Death-Note1-1500x.webp",
     discountedPrice: 1359,
@@ -242,7 +242,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Death Note Tshirt",
     name: "Death Note",
     img: "https://i.ibb.co/0r0BDNQ/Deathnote-Apple-Face.jpg",
     discountedPrice: 1279,
@@ -255,7 +255,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Death Note Tshirt",
     name: "Death Note",
     img: "https://i.ibb.co/G76CBTx/Death-Note-T-Shirt.jpg",
     discountedPrice: 1199,
@@ -268,7 +268,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "MHA Tshirt",
     name: "My Hero Academia",
     img: "https://i.ibb.co/Ln6hy9B/blazing-bakugo-t-shirt-219154.jpg",
     discountedPrice: 1119,
@@ -281,7 +281,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "MHA Tshirt",
     name: "My Hero Academia",
     img: "https://i.ibb.co/m5CLYHK/My-Hero-Academiaanime-T-Shirt-2.jpg",
     discountedPrice: 719,
@@ -294,7 +294,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "MHA Tshirt",
     name: "My Hero Academia",
     img: "https://i.ibb.co/NSyRQMf/Plus-Ultra-T-Shirt-1.jpg",
     discountedPrice: 599,
@@ -307,7 +307,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "MHA Tshirt",
     name: "My Hero Academia",
     img: "https://i.ibb.co/N9yt6Vz/product-image-1553544628.jpg",
     discountedPrice: 869,
@@ -320,7 +320,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "MHA Tshirt",
     name: "My Hero Academia",
     img: "https://i.ibb.co/hWm5xYN/product-image-1645255741.jpg",
     discountedPrice: 607,
@@ -333,7 +333,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Dr. Stone Tshirt",
     name: "Dr. Stone",
     img: "https://i.ibb.co/XtSJS3W/19-bf0b1967-47b2-454d-9942-95d980e92cc9.jpg",
     discountedPrice: 1279,
@@ -346,7 +346,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Dr. Stone Tshirt",
     name: "Dr. Stone",
     img: "https://i.ibb.co/LtTvB4G/Hot-Sale-Anime-Dr-Stone-3d-Printed-T-shirt-Men-women-Fashion-Casual-Harajuku-Short-Sleeve.jpg",
     discountedPrice: 783,
@@ -359,7 +359,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Dr. Stone Tshirt",
     name: "Dr. Stone",
     img: "https://i.ibb.co/P411pYk/Hot-Sale-Anime-Dr-Stone-3d-Printed-T-shirt-Men-women-Fashion-Casual-Harajuku-Short-Sleeve-1.jpg",
     discountedPrice: 543,
@@ -372,7 +372,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Dr. Stone Tshirt",
     name: "Dr. Stone",
     img: "https://i.ibb.co/FnFRLvb/Hot-Sale-Anime-Dr-Stone-3d-Printed-T-shirt-Men-women-Fashion-Casual-Harajuku-Short-Sleeve-4.jpg",
     discountedPrice: 783,
@@ -385,7 +385,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Merch Bee Tshirt",
+    brand: "Dr. Stone Tshirt",
     name: "Dr. Stone",
     img: "https://i.ibb.co/vZMyK9t/Hot-Sale-Anime-Dr-Stone-3d-Printed-T-shirt-Men-women-Fashion-Casual-Harajuku-Short-Sleeve-5.jpg",
     discountedPrice: 927,
