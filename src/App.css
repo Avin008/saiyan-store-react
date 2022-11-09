@@ -2,3 +2,7 @@ img {
   width: 100%;
   object-fit: cover;
 }
+
+html {
+  overflow-y: scroll;
+}
