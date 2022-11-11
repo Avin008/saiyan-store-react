@@ -1,12 +1,15 @@
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useAuthContext } from "../../context/auth-context";
 
 const Login = () => {
   useEffect(() => {
     document.title = "Login | Saiyan Store";
   }, []);
+
+  const { setAuth } = useAuthContext();
 
   const [loginData, setLoginData] = useState({
     email: null,
@@ -22,13 +25,21 @@ const Login = () => {
     setLoginData({ email: "adarshbalika@gmail.com", password: "adarshbalika" });
   };
 
+  const navigate = useNavigate();
+
   const loginFunc = async () => {
     try {
       const res = await axios.post("/api/auth/login", {
         email: loginData.email,
         password: loginData.password,
       });
-      console.log(res);
+      setAuth((prev) => ({
+        ...prev,
+        token: res.data.encodedToken,
+        status: true,
+      }));
+      localStorage.setItem("token", res.data.encodedToken);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

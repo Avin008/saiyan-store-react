@@ -2,10 +2,12 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useWishlistContext } from "../../context/wishlist-context";
 import { useCartContext } from "../../context/cart-context";
+import { useAuthContext } from "../../context/auth-context";
 
 const Navbar = () => {
   const { wishlistState } = useWishlistContext();
   const { cartState } = useCartContext();
+  const { authState } = useAuthContext();
 
   return (
     <nav className="saiyan-navbar navbar-fixed">
@@ -29,7 +31,11 @@ const Navbar = () => {
             <Link to="/login">
               <div className="navbar__icon-badge">
                 <span className="navbar__badge__icon">
-                  <i className="fa-solid fa-user"></i>
+                  {!authState.status ? (
+                    <i className="fa-solid fa-user"></i>
+                  ) : (
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  )}
                 </span>
               </div>
             </Link>
