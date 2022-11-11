@@ -22,7 +22,7 @@ const Login = () => {
   };
 
   const loginAsGuest = () => {
-    setLoginData({ email: "adarshbalika@gmail.com", password: "adarshbalika" });
+    setLoginData({ email: "johndoe@gmail.com", password: "johndoe@1234" });
   };
 
   const navigate = useNavigate();
