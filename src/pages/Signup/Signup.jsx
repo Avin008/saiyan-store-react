@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./signup.css";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Signup = () => {
   useEffect(() => {
@@ -21,6 +22,21 @@ const Signup = () => {
   const inputHandler = (e) => {
     const { name, value } = e.target;
     setSignUpData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const signUpFunc = async () => {
+    try {
+      const res = await axios.post("/api/auth/signup", {
+        firstName: "john",
+        lastName: "doe",
+        email: "more@gmail.com",
+        password: "123456789",
+      });
+
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -74,7 +90,9 @@ const Signup = () => {
           />
         </div>
         <div className="btn-container">
-          <button className="primary-btn">Sign Up</button>
+          <button className="primary-btn" onClick={signUpFunc}>
+            Sign Up
+          </button>
         </div>
         <div className="link-container">
           <Link to="/login" className="primary-link">
