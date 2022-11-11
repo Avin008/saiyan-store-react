@@ -1,55 +1,32 @@
-import { createContext, useContext, useReducer } from "react";
-
+import axios from "axios";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useAuthContext } from "../context/auth-context";
 const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
-  function cartReducerFunc(cartState, action) {
-    switch (action.type) {
-      case "ADD_TO_CART":
-        return {
-          ...cartState,
-          cart: [...cartState.cart, { ...action.payload, cartQuantity: 1 }],
-        };
-      case "INCREMENT_QUANTITY":
-        return {
-          ...cartState,
-          cart: cartState.cart.map((cartItem) =>
-            cartItem.id === action.payload.id
-              ? { ...cartItem, cartQuantity: cartItem.cartQuantity + 1 }
-              : cartItem
-          ),
-        };
-      case "DECREMENT_QUANTITY":
-        return {
-          ...cartState,
-          cart: cartState.cart.map((cartItem) =>
-            cartItem.id === action.payload.id
-              ? {
-                  ...cartItem,
-                  cartQuantity:
-                    cartItem.cartQuantity > 1
-                      ? cartItem.cartQuantity - 1
-                      : cartItem.cartQuantity,
-                }
-              : cartItem
-          ),
-        };
-      case "REMOVE_FROM_CART":
-        return {
-          ...cartState,
-          cart: cartState.cart.filter((obj) => obj._id != action.payload._id),
-        };
-      default:
-        return { ...cartState };
-    }
-  }
+  const [cartState, setCartState] = useState([]);
+  const { authState } = useAuthContext();
 
-  const [cartState, cartDispatch] = useReducer(cartReducerFunc, {
-    cart: [],
-  });
+  useEffect(() => {
+    if (authState.status) {
+      const getCartData = async () => {
+        const res = await axios.get("/api/user/cart", {
+          headers: {
+            authorization: authState.token,
+          },
+        });
+
+        setCartState(res.data.cart);
+      };
+
+      getCartData();
+    } else {
+      setCartState([]);
+    }
+  }, [authState.status]);
 
   return (
-    <CartContext.Provider value={{ cartState, cartDispatch }}>
+    <CartContext.Provider value={{ cartState, setCartState }}>
       {children}
     </CartContext.Provider>
   );
