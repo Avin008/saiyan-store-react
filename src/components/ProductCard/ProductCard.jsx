@@ -1,11 +1,55 @@
 import "./product-card.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useWishlistContext } from "../../context/wishlist-context";
 import { useCartContext } from "../../context/cart-context";
+import { useAuthContext } from "../../context/auth-context";
+import axios from "axios";
 
 const ProductCard = ({ products }) => {
-  const { wishlistState, wishlistDispatch } = useWishlistContext();
-  const { cartState, cartDispatch } = useCartContext();
+  const { wishlistState } = useWishlistContext();
+  const { cartState, setCartState } = useCartContext();
+  const { authState } = useAuthContext();
+  const { setWishlistState } = useWishlistContext();
+  const navigate = useNavigate();
+
+  const addProductToCart = async (product) => {
+    const res = await axios.post(
+      "/api/user/cart",
+      { product },
+      {
+        headers: {
+          authorization: authState.token,
+        },
+        body: {
+          product,
+        },
+      }
+    );
+
+    setCartState(res.data.cart);
+  };
+
+  const addProductToWishlist = async (product) => {
+    const res = await axios.post(
+      "/api/user/wishlist",
+      { product },
+      {
+        headers: {
+          authorization: authState.token,
+        },
+      }
+    );
+    setWishlistState(res.data.wishlist);
+  };
+
+  const removeProductFromWishlist = async (product) => {
+    const res = await axios.delete(`/api/user/wishlist/${[product._id]}`, {
+      headers: {
+        authorization: authState.token,
+      },
+    });
+    setWishlistState(res.data.wishlist);
+  };
 
   return (
     <div className="saiyan-vertical-card">
@@ -22,7 +66,7 @@ const ProductCard = ({ products }) => {
           </span>
         </div>
         <div className="card__actions">
-          {cartState.cart.find((cartItem) => cartItem._id === products._id) ? (
+          {cartState.find((cartItem) => cartItem._id === products._id) ? (
             <Link className="card__btn__links" to="/cart">
               <div className="card__btn card__btn__primary">
                 <i className="fa-solid fa-cart-arrow-down"></i> Go To Cart
@@ -30,10 +74,12 @@ const ProductCard = ({ products }) => {
             </Link>
           ) : (
             <div
-              onClick={() =>
-                cartDispatch({ type: "ADD_TO_CART", payload: products })
-              }
               className="card__btn card__btn__secondary"
+              onClick={() =>
+                authState.status
+                  ? addProductToCart(products)
+                  : navigate("/login")
+              }
             >
               <i className="fa-solid fa-cart-arrow-down"></i> Add to Cart
             </div>
@@ -42,27 +88,19 @@ const ProductCard = ({ products }) => {
           <div className="card__like__btn">
             <div className="card__badge card__icon__badge">
               <span className="card__badge__icon">
-                {wishlistState.wishlist.find(
-                  (obj) => obj._id === products._id
-                ) ? (
+                {wishlistState.find((obj) => obj._id === products._id) ? (
                   <i
-                    onClick={() =>
-                      wishlistDispatch({
-                        type: "REMOVE_FROM_WISHLIST",
-                        payload: products,
-                      })
-                    }
-                    className="fa-regular fa-heart fa-solid fa-heart"
+                    onClick={() => removeProductFromWishlist(products)}
+                    className="fa-regular fa-heart fa-solid fa-heart cursor"
                   ></i>
                 ) : (
                   <i
                     onClick={() =>
-                      wishlistDispatch({
-                        type: "ADD_TO_WISHLIST",
-                        payload: products,
-                      })
+                      authState.status
+                        ? addProductToWishlist(products)
+                        : navigate("/login")
                     }
-                    className="fa-regular fa-heart"
+                    className="fa-regular fa-heart cursor"
                   ></i>
                 )}
               </span>

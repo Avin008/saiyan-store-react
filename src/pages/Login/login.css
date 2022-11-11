@@ -1,80 +1,69 @@
-:root {
-  --login-form-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  --login-form-bg: white;
-  --login-form-btn-primary-bg: #007bff;
-  --login-form-btn-color: white;
-}
-
 /* login form container */
 
-.login-form-container {
-  margin-top: 7rem;
+.form-container {
+  margin-top: 7rem; 
+  /* border: 1px solid gray; */
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-/* login form */
-
-.saiyan-form {
-  box-shadow: var(--login-form-shadow);
-  width: 25rem;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--login-form-bg);
+.login-heading {
+  text-align: center;
 }
 
-.saiyan-form .input-group {
-  display: flex;
-  flex-direction: column;
-  font-weight: 500;
-}
-
-.saiyan-form .checkbox {
-  display: flex;
-  gap: 1rem;
-  margin: 0.5rem 0;
-}
-
-.saiyan-form .actions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
-
-.saiyan-form .btn {
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.login-form {
+  width: 22rem;
+  height: fit-content;
+  border: 1px solid gray;
+  padding: 1rem;
+  background-color: white;
   border-radius: 0.2rem;
 }
 
-.saiyan-form .input {
-  padding: 0.5rem;
+.login-form > * {
+  margin: 1rem;
 }
 
-.saiyan-form .input {
-  margin-bottom: 0.5rem;
+.login-form .input-label {
+  font-size: 1rem;
 }
 
-.saiyan-form .label {
-  margin-bottom: 0.3rem;
-}
-
-.saiyan-form .btn--primary {
-  background-color: var(--login-form-btn-primary-bg);
-  color: var(--login-form-btn-color);
+.login-form .primary-btn {
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
   font-weight: 600;
-  text-decoration: none;
+  border: 1px solid gray;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.2rem;
 }
 
-.saiyan-form .btn--secondary {
-  background-color: var(--color-white);
-  color: var(--login-form-btn-primary-bg);
-  text-decoration: underline;
+.login-form .secondary-btn {
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  font-weight: 600;
+  border: 1px solid gray;
+  background-color: #F73B00;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.2rem;
 }
-/* styles are applying from component library */
+
+.login-form .btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.login-form .primary-link {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.login-form .link-container {
+  display: flex;
+  justify-content: center;
+}

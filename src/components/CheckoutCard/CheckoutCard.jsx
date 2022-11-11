@@ -4,13 +4,15 @@ import { useCartContext } from "../../context/cart-context";
 const CheckoutCard = () => {
   const { cartState } = useCartContext();
 
-  const itemsInCartTotalPrice = cartState.cart.reduce(
-    (acc, curr) => acc + curr.price * curr.cartQuantity,
+  console.log(cartState);
+
+  const itemsInCartTotalPrice = cartState.reduce(
+    (acc, curr) => acc + curr.price * curr.qty,
     0
   );
 
-  const totalPriceAfterDiscount = cartState.cart.reduce(
-    (acc, curr) => acc + curr.discountedPrice * curr.cartQuantity,
+  const totalPriceAfterDiscount = cartState.reduce(
+    (acc, curr) => acc + curr.discountedPrice * curr.qty,
     0
   );
 
@@ -21,7 +23,7 @@ const CheckoutCard = () => {
       <h3>PRICE DETAILS</h3>
       <hr />
       <span className="span__container">
-        <span>price ({cartState.cart.length} items)</span>
+        <span>price ({cartState.length} items)</span>
         <span>Rs. {itemsInCartTotalPrice}</span>
       </span>
       <span className="span__container">
