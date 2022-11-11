@@ -8,50 +8,32 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="login-form-container">
-      <div className="saiyan-form">
-        <h1 className="form__heading">Login</h1>
+    <div className="form-container">
+      <form className="login-form">
+        <h1 className="login-heading">Login</h1>
 
         <div className="input-group">
-          <label className="login-form__label" for="email">
-            Email adresses
+          <label className="input-label" htmlFor="email">
+            Email
           </label>
-          <input
-            className="input"
-            type="email"
-            name="email"
-            placeholder="john@gmail.com"
-          />
-          <label className="label" for="password">
+          <input type="email" placeholder="johndoe@gmail.com" />
+        </div>
+        <div className="input-group">
+          <label className="input-label" htmlFor="email">
             Password
           </label>
-          <input
-            className="input"
-            type="password"
-            name="password"
-            placeholder="********"
-          />
-          <div className="checkbox">
-            <span>
-              <input type="checkbox" name="checkbox" />
-              <label htmlFor="checkbox">Remember me</label>
-            </span>
-
-            <span>
-              <a href="#">Forgot Password?</a>
-            </span>
-          </div>
-
-          <div className="actions">
-            <a className="btn btn--primary" href="#">
-              Login
-            </a>
-            <Link className="btn btn--secondary" to="/signup">
-              Create Account
-            </Link>
-          </div>
+          <input type="password" placeholder="*************" />
         </div>
-      </div>
+        <div className="btn-container">
+          <button className="primary-btn">Login</button>
+          <button className="secondary-btn">Login as Guest</button>
+        </div>
+        <div className="link-container">
+          <a className="primary-link" href="/signup">
+            Create New Account
+          </a>
+        </div>
+      </form>
     </div>
   );
 };
