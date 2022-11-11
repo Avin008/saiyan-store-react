@@ -8,15 +8,11 @@ const Signup = () => {
     document.title = "Signup | Saiyan Store";
   }, []);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
-
   const [signUpData, setSignUpData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
+    firstname: null,
+    lastname: null,
+    email: null,
+    password: null,
   });
 
   const inputHandler = (e) => {
@@ -27,16 +23,21 @@ const Signup = () => {
   const signUpFunc = async () => {
     try {
       const res = await axios.post("/api/auth/signup", {
-        firstName: "john",
-        lastName: "doe",
-        email: "more@gmail.com",
-        password: "123456789",
+        firstName: signUpData.firstname,
+        lastName: signUpData.lastname,
+        email: signUpData.email,
+        password: signUpData.password,
       });
 
       console.log(res);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    signUpFunc();
   };
 
   return (
@@ -53,6 +54,8 @@ const Signup = () => {
             placeholder="john"
             name="firstname"
             onChange={inputHandler}
+            value={signUpData.firstname}
+            required
           />
         </div>
         <div className="input-group">
@@ -64,6 +67,8 @@ const Signup = () => {
             placeholder="lastname"
             name="lastname"
             onChange={inputHandler}
+            value={signUpData.lastname}
+            required
           />
         </div>
 
@@ -76,6 +81,8 @@ const Signup = () => {
             name="email"
             placeholder="johndoe@gmail.com"
             onChange={inputHandler}
+            value={signUpData.email}
+            required
           />
         </div>
         <div className="input-group">
@@ -87,12 +94,12 @@ const Signup = () => {
             name="password"
             placeholder="*************"
             onChange={inputHandler}
+            value={signUpData.password}
+            required
           />
         </div>
         <div className="btn-container">
-          <button className="primary-btn" onClick={signUpFunc}>
-            Sign Up
-          </button>
+          <button className="primary-btn">Sign Up</button>
         </div>
         <div className="link-container">
           <Link to="/login" className="primary-link">
