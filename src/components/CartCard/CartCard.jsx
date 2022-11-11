@@ -7,7 +7,7 @@ import { useAuthContext } from "../../context/auth-context";
 
 const CartCard = ({ products }) => {
   const { setCartState } = useCartContext();
-  const { wishlistState, wishlistDispatch } = useWishlistContext();
+  const { wishlistState, setWishlistState } = useWishlistContext();
   const { authState } = useAuthContext();
 
   const removeProductFromCart = async (product) => {
@@ -17,6 +17,19 @@ const CartCard = ({ products }) => {
       },
     });
     setCartState(res.data.cart);
+  };
+
+  const addProductToWishlist = async (product) => {
+    const res = await axios.post(
+      "/api/user/wishlist",
+      { product },
+      {
+        headers: {
+          authorization: authState.token,
+        },
+      }
+    );
+    setWishlistState(res.data.wishlist);
   };
 
   return (
@@ -60,7 +73,7 @@ const CartCard = ({ products }) => {
             Remove From Cart
           </div>
 
-          {wishlistState.wishlist.find((obj) => obj._id === products._id) ? (
+          {wishlistState.find((obj) => obj._id === products._id) ? (
             <Link
               to="/wishlist"
               className="card__CTA__btn card__CTA__btn--secondary"
@@ -70,11 +83,9 @@ const CartCard = ({ products }) => {
           ) : (
             <div
               className="card__CTA__btn card__CTA__btn--secondary"
-              onClick={() =>
-                wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: products })
-              }
+              onClick={() => addProductToWishlist(products)}
             >
-              Move to Wishlist
+              Add to Wishlist
             </div>
           )}
         </div>
