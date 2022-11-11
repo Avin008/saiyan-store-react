@@ -32,6 +32,40 @@ const CartCard = ({ products }) => {
     setWishlistState(res.data.wishlist);
   };
 
+  const increaseItemQty = async (product) => {
+    const res = await axios.post(
+      `/api/user/cart/${product._id}`,
+      {
+        action: {
+          type: "increment",
+        },
+      },
+      {
+        headers: {
+          authorization: authState.token,
+        },
+      }
+    );
+    setCartState(res.data.cart);
+  };
+
+  const decreaseItemQty = async (product) => {
+    const res = await axios.post(
+      `/api/user/cart/${product._id}`,
+      {
+        action: {
+          type: "decrement",
+        },
+      },
+      {
+        headers: {
+          authorization: authState.token,
+        },
+      }
+    );
+    setCartState(res.data.cart);
+  };
+
   return (
     <div className="saiyan-horizontal-card">
       <div className="card__img__container">
@@ -51,7 +85,10 @@ const CartCard = ({ products }) => {
         <div className="card__quantity">
           <span>Quantity:</span>
           <span className="spacing">
-            <button className="card__quantity__btn card__quantity__btn--minus">
+            <button
+              className="card__quantity__btn card__quantity__btn--minus"
+              onClick={() => products.qty > 1 && decreaseItemQty(products)}
+            >
               -
             </button>
             <input
@@ -59,7 +96,10 @@ const CartCard = ({ products }) => {
               type="text"
               value={products.qty}
             />
-            <button className="card__quantity__btn card__quantity__btn--plus">
+            <button
+              className="card__quantity__btn card__quantity__btn--plus"
+              onClick={() => increaseItemQty(products)}
+            >
               +
             </button>
           </span>
