@@ -8,69 +8,44 @@ const Signup = () => {
   }, []);
 
   return (
-    <div className="signup-form-container">
-      <div className="saiyan-form">
-        <h1 className="heading">Signup</h1>
+    <div className="form-container">
+      <form className="login-form">
+        <h1 className="login-heading">Sign Up</h1>
 
         <div className="input-group">
-          <label className="label" htmlFor="">
-            First Name
+          <label className="input-label" htmlFor="Firstname">
+            First name
           </label>
-          <input
-            className="input"
-            type="text"
-            name=""
-            id=""
-            placeholder="john"
-          />
-          <label className="label" htmlhtmlFor="">
-            Last Name
+          <input type="text" placeholder="john" />
+        </div>
+        <div className="input-group">
+          <label className="input-label" htmlFor="lastname">
+            Last name
           </label>
-          <input
-            className="input"
-            type="text"
-            name=""
-            id=""
-            placeholder="Doe"
-          />
+          <input type="password" placeholder="*************" />
+        </div>
 
-          <label className="label" htmlFor="">
-            Email address
+        <div className="input-group">
+          <label className="input-label" htmlFor="email">
+            Email
           </label>
-          <input
-            className="input"
-            type="email"
-            name=""
-            id=""
-            placeholder="john@gmail.com"
-          />
-          <label className="label" htmlFor="">
+          <input type="email" placeholder="johndoe@gmail.com" />
+        </div>
+        <div className="input-group">
+          <label className="input-label" htmlFor="email">
             Password
           </label>
-          <input
-            className="input"
-            type="password"
-            name=""
-            id=""
-            placeholder="********"
-          />
-          <div className="checkbox">
-            <span>
-              <input type="checkbox" name="" id="" />
-              <label htmlFor="">I accepts all Terms & Conditions</label>
-            </span>
-          </div>
-
-          <div className="actions">
-            <a className="btn btn--primary" href="#">
-              Create New Account
-            </a>
-            <Link className="btn btn--secondary" to="/login">
-              Already have an account
-            </Link>
-          </div>
+          <input type="password" placeholder="*************" />
         </div>
-      </div>
+        <div className="btn-container">
+          <button className="primary-btn">Sign Up</button>
+        </div>
+        <div className="link-container">
+          <a className="primary-link" href="/login">
+            Already Have a Account
+          </a>
+        </div>
+      </form>
     </div>
   );
 };
