@@ -32,7 +32,7 @@ const CartCard = ({ products }) => {
             <input
               className="card__quantity__box"
               type="text"
-              value={products.cartQuantity}
+              value={products.qty}
             />
             <button className="card__quantity__btn card__quantity__btn--plus">
               +
