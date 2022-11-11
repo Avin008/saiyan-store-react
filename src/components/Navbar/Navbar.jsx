@@ -55,7 +55,7 @@ const Navbar = () => {
                   <i className="fa-solid fa-heart"></i>
                   {authState.status && (
                     <span className="navbar__badge__icon-badge">
-                      {wishlistState.wishlist.length}
+                      {wishlistState.length}
                     </span>
                   )}
                 </span>

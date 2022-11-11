@@ -5,15 +5,15 @@ import { useWishlistContext } from "../../context/wishlist-context";
 import { useEffect } from "react";
 
 const Wishlist = () => {
-  const { wishlistState, wishlistDispatch } = useWishlistContext();
+  const { wishlistState } = useWishlistContext();
 
   useEffect(() => {
-    document.title = `(${wishlistState.wishlist.length}) Wishlist | Saiyan Store`;
-  }, [wishlistState.wishlist]);
+    document.title = `(${wishlistState.length}) Wishlist | Saiyan Store`;
+  }, [wishlistState]);
 
   return (
     <div className="wishlist-container">
-      {wishlistState.wishlist.length < 1 ? (
+      {wishlistState.length < 1 ? (
         <div className="empty-wishlist">
           <h2 className="empty-wishlist-title">No Items in Wishlist!</h2>
           <Link to="/products">
@@ -27,7 +27,7 @@ const Wishlist = () => {
           </div>
 
           <div className="wishlist__card__container">
-            {wishlistState.wishlist.map((item) => (
+            {wishlistState.map((item) => (
               <ProductCard key={item.id} products={item} />
             ))}
           </div>

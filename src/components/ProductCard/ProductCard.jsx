@@ -60,18 +60,8 @@ const ProductCard = ({ products }) => {
           <div className="card__like__btn">
             <div className="card__badge card__icon__badge">
               <span className="card__badge__icon">
-                {wishlistState.wishlist.find(
-                  (obj) => obj._id === products._id
-                ) ? (
-                  <i
-                    onClick={() =>
-                      wishlistDispatch({
-                        type: "REMOVE_FROM_WISHLIST",
-                        payload: products,
-                      })
-                    }
-                    className="fa-regular fa-heart fa-solid fa-heart"
-                  ></i>
+                {wishlistState.find((obj) => obj._id === products._id) ? (
+                  <i className="fa-regular fa-heart fa-solid fa-heart"></i>
                 ) : (
                   <i
                     onClick={() =>
