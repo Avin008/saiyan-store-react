@@ -8,13 +8,9 @@ const Login = () => {
     document.title = "Login | Saiyan Store";
   }, []);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
-
   const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
+    email: null,
+    password: null,
   });
 
   const inputHandler = (e) => {
@@ -22,16 +18,25 @@ const Login = () => {
     setLoginData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const loginAsGuest = () => {
+    setLoginData({ email: "adarshbalika@gmail.com", password: "adarshbalika" });
+  };
+
   const loginFunc = async () => {
     try {
       const res = await axios.post("/api/auth/login", {
-        email: "more@gmail.com",
-        password: "123456789",
+        email: loginData.email,
+        password: loginData.password,
       });
       console.log(res);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    loginFunc();
   };
 
   return (
@@ -48,6 +53,8 @@ const Login = () => {
             placeholder="johndoe@gmail.com"
             name="email"
             onChange={inputHandler}
+            value={loginData.email}
+            required
           />
         </div>
         <div className="input-group">
@@ -59,13 +66,15 @@ const Login = () => {
             placeholder="*************"
             name="password"
             onChange={inputHandler}
+            value={loginData.password}
+            required
           />
         </div>
         <div className="btn-container">
-          <button className="primary-btn" onClick={loginFunc}>
-            Login
+          <button className="primary-btn">Login</button>
+          <button className="secondary-btn" onClick={loginAsGuest}>
+            Login as Guest
           </button>
-          <button className="secondary-btn">Login as Guest</button>
         </div>
         <div className="link-container">
           <Link to="/signup" className="primary-link">
