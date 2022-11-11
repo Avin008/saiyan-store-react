@@ -7,7 +7,12 @@ import { useAuthContext } from "../../context/auth-context";
 const Navbar = () => {
   const { wishlistState } = useWishlistContext();
   const { cartState } = useCartContext();
-  const { authState } = useAuthContext();
+  const { authState, setAuth } = useAuthContext();
+
+  const logoutUser = () => {
+    localStorage.clear();
+    setAuth((prev) => ({ ...prev, status: false, token: null }));
+  };
 
   return (
     <nav className="saiyan-navbar navbar-fixed">
@@ -34,7 +39,10 @@ const Navbar = () => {
                   {!authState.status ? (
                     <i className="fa-solid fa-user"></i>
                   ) : (
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <i
+                      class="fa-solid fa-arrow-right-from-bracket"
+                      onClick={logoutUser}
+                    ></i>
                   )}
                 </span>
               </div>
@@ -45,9 +53,11 @@ const Navbar = () => {
               <div className="navbar__icon-badge">
                 <span className="navbar__badge__icon">
                   <i className="fa-solid fa-heart"></i>
-                  <span className="navbar__badge__icon-badge">
-                    {wishlistState.wishlist.length}
-                  </span>
+                  {authState.status && (
+                    <span className="navbar__badge__icon-badge">
+                      {wishlistState.wishlist.length}
+                    </span>
+                  )}
                 </span>
               </div>
             </Link>
@@ -57,9 +67,11 @@ const Navbar = () => {
               <div className="navbar__icon-badge">
                 <span className="navbar__badge__icon">
                   <i className="fas fa-shopping-cart"></i>
-                  <span className="navbar__badge__icon-badge">
-                    {cartState.cart.length}
-                  </span>
+                  {authState.status && (
+                    <span className="navbar__badge__icon-badge">
+                      {cartState.cart.length}
+                    </span>
+                  )}
                 </span>
               </div>
             </Link>
