@@ -15,15 +15,19 @@ const WishlistContextProvider = ({ children }) => {
   const { authState } = useAuthContext();
 
   useEffect(() => {
-    const getWishlistProducts = async () => {
-      const res = await axios.get("/api/user/wishlist", {
-        headers: {
-          authorization: authState.token,
-        },
-      });
-      setWishlistState(res.data.wishlist);
-    };
-    getWishlistProducts();
+    if (authState.status) {
+      const getWishlistProducts = async () => {
+        const res = await axios.get("/api/user/wishlist", {
+          headers: {
+            authorization: authState.token,
+          },
+        });
+        setWishlistState(res.data.wishlist);
+      };
+      getWishlistProducts();
+    } else {
+      setWishlistState([]);
+    }
   }, [authState.status]);
 
   return (

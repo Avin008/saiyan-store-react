@@ -8,17 +8,21 @@ const CartContextProvider = ({ children }) => {
   const { authState } = useAuthContext();
 
   useEffect(() => {
-    const getCartData = async () => {
-      const res = await axios.get("/api/user/cart", {
-        headers: {
-          authorization: authState.token,
-        },
-      });
+    if (authState.status) {
+      const getCartData = async () => {
+        const res = await axios.get("/api/user/cart", {
+          headers: {
+            authorization: authState.token,
+          },
+        });
 
-      setCartState(res.data.cart);
-    };
+        setCartState(res.data.cart);
+      };
 
-    getCartData();
+      getCartData();
+    } else {
+      setCartState([]);
+    }
   }, [authState.status]);
 
   return (
