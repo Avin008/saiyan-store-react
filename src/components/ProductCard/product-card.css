@@ -10,3 +10,6 @@
 .card__btn__links {
   text-decoration: none;
 }
+.cursor {
+  cursor: pointer;
+}

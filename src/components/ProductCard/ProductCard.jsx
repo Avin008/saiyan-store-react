@@ -91,7 +91,7 @@ const ProductCard = ({ products }) => {
                 {wishlistState.find((obj) => obj._id === products._id) ? (
                   <i
                     onClick={() => removeProductFromWishlist(products)}
-                    className="fa-regular fa-heart fa-solid fa-heart"
+                    className="fa-regular fa-heart fa-solid fa-heart cursor"
                   ></i>
                 ) : (
                   <i
@@ -100,7 +100,7 @@ const ProductCard = ({ products }) => {
                         ? addProductToWishlist(products)
                         : navigate("/login")
                     }
-                    className="fa-regular fa-heart"
+                    className="fa-regular fa-heart cursor"
                   ></i>
                 )}
               </span>
