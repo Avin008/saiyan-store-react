@@ -6,9 +6,10 @@ import { useAuthContext } from "../../context/auth-context";
 import axios from "axios";
 
 const ProductCard = ({ products }) => {
-  const { wishlistState, wishlistDispatch } = useWishlistContext();
+  const { wishlistState } = useWishlistContext();
   const { cartState, setCartState } = useCartContext();
   const { authState } = useAuthContext();
+  const { setWishlistState } = useWishlistContext();
 
   const addProductToCart = async (product) => {
     const res = await axios.post(
@@ -25,6 +26,28 @@ const ProductCard = ({ products }) => {
     );
 
     setCartState(res.data.cart);
+  };
+
+  const addProductToWishlist = async (product) => {
+    const res = await axios.post(
+      "/api/user/wishlist",
+      { product },
+      {
+        headers: {
+          authorization: authState.token,
+        },
+      }
+    );
+    setWishlistState(res.data.wishlist);
+  };
+
+  const removeProductFromWishlist = async (product) => {
+    const res = await axios.delete(`/api/user/wishlist/${[product._id]}`, {
+      headers: {
+        authorization: authState.token,
+      },
+    });
+    setWishlistState(res.data.wishlist);
   };
 
   return (
@@ -61,15 +84,13 @@ const ProductCard = ({ products }) => {
             <div className="card__badge card__icon__badge">
               <span className="card__badge__icon">
                 {wishlistState.find((obj) => obj._id === products._id) ? (
-                  <i className="fa-regular fa-heart fa-solid fa-heart"></i>
+                  <i
+                    onClick={() => removeProductFromWishlist(products)}
+                    className="fa-regular fa-heart fa-solid fa-heart"
+                  ></i>
                 ) : (
                   <i
-                    onClick={() =>
-                      wishlistDispatch({
-                        type: "ADD_TO_WISHLIST",
-                        payload: products,
-                      })
-                    }
+                    onClick={() => addProductToWishlist(products)}
                     className="fa-regular fa-heart"
                   ></i>
                 )}
