@@ -2,10 +2,30 @@ import "./product-card.css";
 import { Link } from "react-router-dom";
 import { useWishlistContext } from "../../context/wishlist-context";
 import { useCartContext } from "../../context/cart-context";
+import { useAuthContext } from "../../context/auth-context";
+import axios from "axios";
 
 const ProductCard = ({ products }) => {
   const { wishlistState, wishlistDispatch } = useWishlistContext();
   const { cartState, setCartState } = useCartContext();
+  const { authState } = useAuthContext();
+
+  const addProductToCart = async (product) => {
+    const res = await axios.post(
+      "/api/user/cart",
+      { product },
+      {
+        headers: {
+          authorization: authState.token,
+        },
+        body: {
+          product,
+        },
+      }
+    );
+
+    setCartState(res.data.cart);
+  };
 
   return (
     <div className="saiyan-vertical-card">
@@ -29,7 +49,10 @@ const ProductCard = ({ products }) => {
               </div>
             </Link>
           ) : (
-            <div className="card__btn card__btn__secondary">
+            <div
+              className="card__btn card__btn__secondary"
+              onClick={() => addProductToCart(products)}
+            >
               <i className="fa-solid fa-cart-arrow-down"></i> Add to Cart
             </div>
           )}
