@@ -2,10 +2,22 @@ import "./cart-card.css";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/cart-context";
 import { useWishlistContext } from "../../context/wishlist-context";
+import axios from "axios";
+import { useAuthContext } from "../../context/auth-context";
 
 const CartCard = ({ products }) => {
-  const { setCartData } = useCartContext();
+  const { setCartState } = useCartContext();
   const { wishlistState, wishlistDispatch } = useWishlistContext();
+  const { authState } = useAuthContext();
+
+  const removeProductFromCart = async (product) => {
+    const res = await axios.delete(`/api/user/cart/${product._id}`, {
+      headers: {
+        authorization: authState.token,
+      },
+    });
+    setCartState(res.data.cart);
+  };
 
   return (
     <div className="saiyan-horizontal-card">
@@ -41,7 +53,10 @@ const CartCard = ({ products }) => {
         </div>
 
         <div className="card__CTA__container">
-          <div className="card__CTA__btn card__CTA__btn--primary">
+          <div
+            className="card__CTA__btn card__CTA__btn--primary"
+            onClick={() => removeProductFromCart(products)}
+          >
             Remove From Cart
           </div>
 
