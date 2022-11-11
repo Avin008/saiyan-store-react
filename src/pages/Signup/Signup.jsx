@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useAuthContext } from "../../context/auth-context";
 
 const Signup = () => {
   useEffect(() => {
     document.title = "Signup | Saiyan Store";
   }, []);
+
+  const { setAuth } = useAuthContext();
 
   const [signUpData, setSignUpData] = useState({
     firstname: null,
@@ -20,6 +23,8 @@ const Signup = () => {
     setSignUpData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const navigate = useNavigate();
+
   const signUpFunc = async () => {
     try {
       const res = await axios.post("/api/auth/signup", {
@@ -29,7 +34,13 @@ const Signup = () => {
         password: signUpData.password,
       });
 
-      console.log(res);
+      localStorage.setItem("token", res.data.encodedToken);
+      setAuth((prev) => ({
+        ...prev,
+        status: true,
+        token: res.data.encodedToken,
+      }));
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
