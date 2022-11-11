@@ -1,5 +1,5 @@
 import "./product-card.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useWishlistContext } from "../../context/wishlist-context";
 import { useCartContext } from "../../context/cart-context";
 import { useAuthContext } from "../../context/auth-context";
@@ -10,6 +10,7 @@ const ProductCard = ({ products }) => {
   const { cartState, setCartState } = useCartContext();
   const { authState } = useAuthContext();
   const { setWishlistState } = useWishlistContext();
+  const navigate = useNavigate();
 
   const addProductToCart = async (product) => {
     const res = await axios.post(
@@ -74,7 +75,11 @@ const ProductCard = ({ products }) => {
           ) : (
             <div
               className="card__btn card__btn__secondary"
-              onClick={() => addProductToCart(products)}
+              onClick={() =>
+                authState.status
+                  ? addProductToCart(products)
+                  : navigate("/login")
+              }
             >
               <i className="fa-solid fa-cart-arrow-down"></i> Add to Cart
             </div>
@@ -90,7 +95,11 @@ const ProductCard = ({ products }) => {
                   ></i>
                 ) : (
                   <i
-                    onClick={() => addProductToWishlist(products)}
+                    onClick={() =>
+                      authState.status
+                        ? addProductToWishlist(products)
+                        : navigate("/login")
+                    }
                     className="fa-regular fa-heart"
                   ></i>
                 )}
