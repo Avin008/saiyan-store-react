@@ -69,7 +69,7 @@ const Navbar = () => {
                   <i className="fas fa-shopping-cart"></i>
                   {authState.status && (
                     <span className="navbar__badge__icon-badge">
-                      {cartState.cart.length}
+                      {cartState.length}
                     </span>
                   )}
                 </span>

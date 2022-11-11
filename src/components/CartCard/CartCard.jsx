@@ -4,7 +4,7 @@ import { useCartContext } from "../../context/cart-context";
 import { useWishlistContext } from "../../context/wishlist-context";
 
 const CartCard = ({ products }) => {
-  const { cartDispatch } = useCartContext();
+  const { setCartData } = useCartContext();
   const { wishlistState, wishlistDispatch } = useWishlistContext();
 
   return (
@@ -26,12 +26,7 @@ const CartCard = ({ products }) => {
         <div className="card__quantity">
           <span>Quantity:</span>
           <span className="spacing">
-            <button
-              onClick={() =>
-                cartDispatch({ type: "DECREMENT_QUANTITY", payload: products })
-              }
-              className="card__quantity__btn card__quantity__btn--minus"
-            >
+            <button className="card__quantity__btn card__quantity__btn--minus">
               -
             </button>
             <input
@@ -39,24 +34,14 @@ const CartCard = ({ products }) => {
               type="text"
               value={products.cartQuantity}
             />
-            <button
-              onClick={() =>
-                cartDispatch({ type: "INCREMENT_QUANTITY", payload: products })
-              }
-              className="card__quantity__btn card__quantity__btn--plus"
-            >
+            <button className="card__quantity__btn card__quantity__btn--plus">
               +
             </button>
           </span>
         </div>
 
         <div className="card__CTA__container">
-          <div
-            className="card__CTA__btn card__CTA__btn--primary"
-            onClick={() =>
-              cartDispatch({ type: "REMOVE_FROM_CART", payload: products })
-            }
-          >
+          <div className="card__CTA__btn card__CTA__btn--primary">
             Remove From Cart
           </div>
 

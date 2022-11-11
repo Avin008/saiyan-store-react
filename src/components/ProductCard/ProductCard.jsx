@@ -5,7 +5,7 @@ import { useCartContext } from "../../context/cart-context";
 
 const ProductCard = ({ products }) => {
   const { wishlistState, wishlistDispatch } = useWishlistContext();
-  const { cartState, cartDispatch } = useCartContext();
+  const { cartState, setCartState } = useCartContext();
 
   return (
     <div className="saiyan-vertical-card">
@@ -22,19 +22,14 @@ const ProductCard = ({ products }) => {
           </span>
         </div>
         <div className="card__actions">
-          {cartState.cart.find((cartItem) => cartItem._id === products._id) ? (
+          {cartState.find((cartItem) => cartItem._id === products._id) ? (
             <Link className="card__btn__links" to="/cart">
               <div className="card__btn card__btn__primary">
                 <i className="fa-solid fa-cart-arrow-down"></i> Go To Cart
               </div>
             </Link>
           ) : (
-            <div
-              onClick={() =>
-                cartDispatch({ type: "ADD_TO_CART", payload: products })
-              }
-              className="card__btn card__btn__secondary"
-            >
+            <div className="card__btn card__btn__secondary">
               <i className="fa-solid fa-cart-arrow-down"></i> Add to Cart
             </div>
           )}
